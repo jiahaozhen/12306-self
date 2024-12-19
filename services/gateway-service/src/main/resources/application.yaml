@@ -5,7 +5,6 @@ spring:
     name: index12306-gateway${unique-name:}-service
   profiles:
     active: aggregation
-    # active: dev
   cloud:
     nacos:
       discovery:
