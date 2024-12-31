@@ -31,7 +31,6 @@ mybatis-plus:
       logic-not-delete-value: 0
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  # mapper-locations: classpath:mapper/*.xml
 
 framework:
   fastjson:
