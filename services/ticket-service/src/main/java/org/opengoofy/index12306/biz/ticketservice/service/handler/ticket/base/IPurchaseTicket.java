@@ -15,23 +15,11 @@
  * limitations under the License.
  */
 
-package org.opengoofy.index12306.biz.userservice;
-
-import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+package org.opengoofy.index12306.biz.ticketservice.service.handler.ticket.base;
 
 /**
- * 用户服务应用启动器
+ * 购票顶级抽象接口，为后续火车、高铁、汽车、飞机等出行工具规定行为约束
  * 公众号：马丁玩编程，回复：加群，添加马哥微信（备注：12306）获取项目资料
  */
-@SpringBootApplication
-@MapperScan("org.opengoofy.index12306.biz.userservice.dao.mapper")
-@EnableDiscoveryClient
-public class UserServiceApplication {
-
-    public static void main(String[] args) {
-        SpringApplication.run(UserServiceApplication.class, args);
-    }
+public interface IPurchaseTicket {
 }

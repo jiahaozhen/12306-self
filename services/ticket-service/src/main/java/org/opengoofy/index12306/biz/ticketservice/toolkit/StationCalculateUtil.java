@@ -72,13 +72,13 @@ public final class StationCalculateUtil {
         }
         if (startIndex != 0) {
             for (int i = 0; i < startIndex; i++) {
-                for (int j = 1; j < stations.size() - startIndex; j++) {
-                    takeoutStationList.add(new RouteDTO(stations.get(i), stations.get(startIndex + j)));
+                for (int j = startIndex + 1; j < stations.size(); j++) {
+                    takeoutStationList.add(new RouteDTO(stations.get(i), stations.get(j)));
                 }
             }
         }
         for (int i = startIndex; i <= endIndex; i++) {
-            for (int j = i + 1; j < stations.size() && i < endIndex; j++) {
+            for (int j = i + 1; j < stations.size(); j++) {
                 takeoutStationList.add(new RouteDTO(stations.get(i), stations.get(j)));
             }
         }

@@ -15,23 +15,20 @@
  * limitations under the License.
  */
 
-package org.opengoofy.index12306.biz.userservice;
+package org.opengoofy.index12306.biz.ticketservice.service.handler.ticket.filter.purchase;
 
-import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.opengoofy.index12306.biz.ticketservice.common.enums.TicketChainMarkEnum;
+import org.opengoofy.index12306.biz.ticketservice.dto.req.PurchaseTicketReqDTO;
+import org.opengoofy.index12306.framework.starter.designpattern.chain.AbstractChainHandler;
 
 /**
- * 用户服务应用启动器
+ * 列车购买车票过滤器
  * 公众号：马丁玩编程，回复：加群，添加马哥微信（备注：12306）获取项目资料
  */
-@SpringBootApplication
-@MapperScan("org.opengoofy.index12306.biz.userservice.dao.mapper")
-@EnableDiscoveryClient
-public class UserServiceApplication {
+public interface TrainPurchaseTicketChainFilter<T extends PurchaseTicketReqDTO> extends AbstractChainHandler<PurchaseTicketReqDTO> {
 
-    public static void main(String[] args) {
-        SpringApplication.run(UserServiceApplication.class, args);
+    @Override
+    default String mark() {
+        return TicketChainMarkEnum.TRAIN_PURCHASE_TICKET_FILTER.name();
     }
 }

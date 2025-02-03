@@ -15,23 +15,39 @@
  * limitations under the License.
  */
 
-package org.opengoofy.index12306.biz.userservice;
+package org.opengoofy.index12306.biz.ticketservice.service.handler.ticket.dto;
 
-import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import org.opengoofy.index12306.biz.ticketservice.dto.domain.PurchaseTicketPassengerDetailDTO;
+import org.opengoofy.index12306.biz.ticketservice.dto.req.PurchaseTicketReqDTO;
+
+import java.util.List;
 
 /**
- * 用户服务应用启动器
+ * 选择座位实体
  * 公众号：马丁玩编程，回复：加群，添加马哥微信（备注：12306）获取项目资料
  */
-@SpringBootApplication
-@MapperScan("org.opengoofy.index12306.biz.userservice.dao.mapper")
-@EnableDiscoveryClient
-public class UserServiceApplication {
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public final class SelectSeatDTO {
 
-    public static void main(String[] args) {
-        SpringApplication.run(UserServiceApplication.class, args);
-    }
+    /**
+     * 座位类型
+     */
+    private Integer seatType;
+
+    /**
+     * 座位对应的乘车人集合
+     */
+    private List<PurchaseTicketPassengerDetailDTO> passengerSeatDetails;
+
+    /**
+     * 购票原始入参
+     */
+    private PurchaseTicketReqDTO requestParam;
 }

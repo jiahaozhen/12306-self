@@ -15,23 +15,64 @@
  * limitations under the License.
  */
 
-package org.opengoofy.index12306.biz.userservice;
+package org.opengoofy.index12306.biz.ticketservice.service.handler.ticket.dto;
 
-import org.mybatis.spring.annotation.MapperScan;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import lombok.Data;
 
 /**
- * 用户服务应用启动器
+ * 列车购票出参
  * 公众号：马丁玩编程，回复：加群，添加马哥微信（备注：12306）获取项目资料
  */
-@SpringBootApplication
-@MapperScan("org.opengoofy.index12306.biz.userservice.dao.mapper")
-@EnableDiscoveryClient
-public class UserServiceApplication {
+@Data
+public class TrainPurchaseTicketRespDTO {
 
-    public static void main(String[] args) {
-        SpringApplication.run(UserServiceApplication.class, args);
-    }
+    /**
+     * 乘车人 ID
+     */
+    private String passengerId;
+
+    /**
+     * 乘车人姓名
+     */
+    private String realName;
+
+    /**
+     * 乘车人证件类型
+     */
+    private Integer idType;
+
+    /**
+     * 乘车人证件号
+     */
+    private String idCard;
+
+    /**
+     * 乘车人手机号
+     */
+    private String phone;
+
+    /**
+     * 用户类型 0：成人 1：儿童 2：学生 3：残疾军人
+     */
+    private Integer userType;
+
+    /**
+     * 席别类型
+     */
+    private Integer seatType;
+
+    /**
+     * 车厢号
+     */
+    private String carriageNumber;
+
+    /**
+     * 座位号
+     */
+    private String seatNumber;
+
+    /**
+     * 座位金额
+     */
+    private Integer amount;
 }
